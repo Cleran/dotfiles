@@ -15,6 +15,7 @@
   imports = [
 	./programs/nvim/nvim.nix
 	./programs/starship/starship.nix
+	./programs/hyprland/hyprland.nix
   ];
 
   programs.kitty = {
