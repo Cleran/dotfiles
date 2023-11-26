@@ -18,6 +18,8 @@
 	./programs/hyprland/hyprland.nix
   ];
 
+  programs.firefox.enable = true;
+
   programs.kitty = {
     enable = true;
     font = {
@@ -30,9 +32,6 @@
 	};
  };
 
- programs.alacritty = {
-	enable = true;
- };
  programs.wezterm = {
 	enable = true;
  };
@@ -52,7 +51,14 @@
   programs.bash = {
 	enable = true;
 	enableCompletion = true;
+	shellAliases = {
+		switch-home = "home-manager switch --flake ~/dotfiles/";
+		switch-nixos = "sudo nixos-rebuild switch --flake ~/nixos-conf/";
+	};
   };
+
+  programs.wofi.enable = true;
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
