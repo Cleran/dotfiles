@@ -11,9 +11,6 @@
 	enable = true;
 	systemd.enable = true;
 	systemd.target = "hyprland-session.target";
-	#package = (pkgs.waybar.overrideAttrs (oldAttrs: {
-	#	mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-	#}));
 	
 #	style = ./waybar/style.css;
 	#settings = builtins.fromJSON (builtins.readFile ./waybar/config);
@@ -36,4 +33,14 @@
 
 	xdg.configFile."waybar/style.css".source = ./waybar/style.css;
 #	xdg.configFile."waybar/config".source = ./waybar/config;
+
+
+	services.dunst = {
+		enable = true;
+	};
+
+	home.packages = with pkgs; [
+		libnotify
+	];	
+
 }
