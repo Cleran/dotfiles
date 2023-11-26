@@ -32,10 +32,6 @@
 	};
  };
 
- programs.wezterm = {
-	enable = true;
- };
-
   programs.tmux = {
 	enable = true;
 	keyMode = "vi";

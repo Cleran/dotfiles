@@ -4,28 +4,36 @@
 		enable = true;
 		xwayland.enable = true;
 		extraConfig = builtins.readFile ./hyprland.conf;
+		systemd.enable = true;
 	};
 
   programs.waybar ={
 	enable = true;
 	systemd.enable = true;
+	systemd.target = "hyprland-session.target";
 	#package = (pkgs.waybar.overrideAttrs (oldAttrs: {
 	#	mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
 	#}));
 	
-	style = ./waybar/style.css;
+#	style = ./waybar/style.css;
 	#settings = builtins.fromJSON (builtins.readFile ./waybar/config);
 	settings = {
 		MainBar = {
 			layer = "top";
 			position = "top";
 			modules-left = [ "hyprland/workspaces" ];
-			modules-middle = [ "hyprland/window" ];
+			modules-center = [ "hyprland/window" ];
 			modules-right = [ "clock" ];
+			"hyprland/workspaces" = {
+				format = "{icon}";
+				persistent-workspaces = {
+					"*" = 5;
+				};
+			};
 		};
 	};
   };
 
-#	xdg.configFile."waybar/style.css".source = ./waybar/style.css;
+	xdg.configFile."waybar/style.css".source = ./waybar/style.css;
 #	xdg.configFile."waybar/config".source = ./waybar/config;
 }
