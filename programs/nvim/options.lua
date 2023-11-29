@@ -1,17 +1,20 @@
+local g = vim.g
+local opt = vim.o
+
 -- disables netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- sets leader to space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- use system clipboard
-vim.o.clipboard = 'unnamedplus'
+opt.clipboard = 'unnamedplus'
 
-vim.o.number = true
+opt.number = true
 
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+opt.tabstop = 4
+opt.shiftwidth = 4
 
-vim.o.termguicolors = true
+opt.termguicolors = true

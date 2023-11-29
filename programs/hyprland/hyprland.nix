@@ -40,7 +40,9 @@
 	};
 
 	home.packages = with pkgs; [
-		libnotify
+		libnotify # for dunst
+
+		libsForQt5.polkit-kde-agent # authentication agent
 	];	
 
 }
